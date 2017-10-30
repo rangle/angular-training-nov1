@@ -1,0 +1,27 @@
+<article class="pv4 bb b--black-10 ph3 ph0-l">
+
+  <div>
+    <h2 appHeading class="f3">
+      {{ title }}
+    </h2>
+
+    <p class="f5 f4-l" appText>
+      {{ body | excerpt:15:',' }}
+    </p>
+  </div>
+
+  <div class="flex">
+    <div class="flex-auto">
+      <p class="f6 gray mv0" appText>
+        By <span class="ttu">{{ author }}</span>
+      </p>
+
+      <time class="f6 db gray" datetime="" appText>
+        {{ date | date:'fullDate' }}
+      </time>
+    </div>
+
+    <ng-content></ng-content>
+  </div>
+
+</article>

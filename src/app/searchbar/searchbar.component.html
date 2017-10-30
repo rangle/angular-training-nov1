@@ -1,0 +1,19 @@
+<form class="pt4">
+  <fieldset class="cf bn ma0 pa0 dark-gray">
+
+    <legend class="pa0 f5 mb3 clip">Search for blog posts</legend>
+
+    <div class="flex">
+      <input class="f5 input-reset ba br-0 bg-white pa3 lh-solid w-100 flex-auto br2 br--left"
+        type="text"
+        name="query"
+        [(ngModel)]="query"
+        (change)="updateQuery()">
+
+      <input class="f5 button-reset pv3 tc bn bg-animate bg-dark-gray hover-bg-mid-gray white pointer w4 br2 br--right"
+        type="submit"
+        value="Search">
+    </div>
+
+  </fieldset>
+</form>
