@@ -13,6 +13,7 @@ import { SearchbarComponent } from './searchbar/searchbar.component';
 import { ExcerptPipe } from './excerpt.pipe';
 import { PostsService } from './posts/posts.service';
 import { ClientService } from './api/client.service';
+import { ScrollDirective } from './scroll.directive';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ClientService } from './api/client.service';
     LikeComponent,
     PostsListComponent,
     SearchbarComponent,
-    ExcerptPipe
+    ExcerptPipe,
+    ScrollDirective
   ],
   imports: [
     BrowserModule,
