@@ -1,6 +1,8 @@
 <section class="mw7 center">
   <h1 appHeading class="f3">My Blog</h1>
 
+  <h2>Count is: {{ timer | async | number:'2.3' }}</h2>
+
   <app-posts-list>
   </app-posts-list>
 </section>

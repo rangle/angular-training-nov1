@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { ClientService } from '../api/client.service';
 
 @Injectable()
@@ -18,8 +18,13 @@ export class PostsService {
   getPosts() {
     this.clientService.get('/posts')
       .map(posts => this.normalizePosts(posts))
+        .do(posts => {
+          console.log(`Loaded ${posts.length} posts`);
+        })
       .subscribe(posts => {
         this.stateSubject.next({ posts });
+      }, () => {
+        console.log('Fetching posts failed');
       });
   }
 
