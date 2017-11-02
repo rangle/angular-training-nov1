@@ -6,7 +6,7 @@ import { PostsService } from '../posts/posts.service';
   templateUrl: './posts-list.component.html',
   styleUrls: ['./posts-list.component.css'],
   styles: [`
-    ::ng-deep .foo { color: tomato; }
+    ::ng-deep .foo { color: #001B44; }
   `]
 })
 export class PostsListComponent implements OnInit, OnDestroy {

@@ -1,8 +1,18 @@
 <section class="mw7 center">
   <h1 appHeading class="f3">My Blog</h1>
 
-  <h2>Count is: {{ timer | async | number:'2.3' }}</h2>
+  <!-- <app-heading color="red" fontSize="3" aria-label="this i a heading">
+    My Blog
+  </app-heading> -->
 
-  <app-posts-list>
+  <!-- <h2 class="pa4 bg-light-gray">
+    {{ phoneNumber | phoneNumber:'CA' }}
+  </h2> -->
+
+  <!-- <input type="text" name="phone-number"
+    [ngModel]="phoneNumber | phoneNumber:'CA'"
+    (ngModelChange)="phoneNumber=$event" /> -->
+
+  <app-posts-list [appScroll]="handleScroll">
   </app-posts-list>
 </section>

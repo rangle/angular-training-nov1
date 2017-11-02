@@ -1,9 +1,11 @@
 <app-searchbar
-  [(query)]="query">
+  [query]="query"
+  (queryChange)="postsService.updateQuery($event)"
+  >
 </app-searchbar>
 
 <app-post
-  *ngFor="let post of postsService.posts$ | async"
+  *ngFor="let post of postsService.filteredPosts$ | async"
   [title]="post.title"
   [body]="post.body"
   [author]="post.author"

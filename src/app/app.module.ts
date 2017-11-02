@@ -14,6 +14,8 @@ import { ExcerptPipe } from './excerpt.pipe';
 import { PostsService } from './posts/posts.service';
 import { ClientService } from './api/client.service';
 import { ScrollDirective } from './scroll.directive';
+import { PhoneNumberPipe } from './pipes/phone-number.pipe';
+import { HeadingComponent } from './heading/heading.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { ScrollDirective } from './scroll.directive';
     PostsListComponent,
     SearchbarComponent,
     ExcerptPipe,
-    ScrollDirective
+    ScrollDirective,
+    PhoneNumberPipe,
+    HeadingComponent
   ],
   imports: [
     BrowserModule,

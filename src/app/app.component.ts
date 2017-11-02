@@ -9,14 +9,19 @@ import { Observable } from 'rxjs';
 export class AppComponent implements OnInit, OnDestroy {
 
   timer: any;
+  phoneNumber = '1234567890';
 
   constructor() {
   }
 
   ngOnInit() {
-    this.timer = Observable.interval(500);
+    // this.timer = Observable.interval(500);
 
     console.log('Component initialized');
+  }
+
+  handleScroll(pos) {
+    console.log(pos);
   }
 
   ngOnDestroy() {
