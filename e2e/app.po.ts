@@ -5,7 +5,19 @@ export class AppPage {
     return browser.get('/');
   }
 
-  getParagraphText() {
-    return element(by.css('app-root h1')).getText();
+  getPosts() {
+    return element.all(by.tagName('app-post'));
+  }
+
+  getQueryInput() {
+    return element(by.css('input[name=query]'));
+  }
+
+  getSearchButton() {
+    return element(by.buttonText('Search'));
+  }
+
+  getLikeButtons() {
+    return element.all(by.css('.qa-like-btn'));
   }
 }
