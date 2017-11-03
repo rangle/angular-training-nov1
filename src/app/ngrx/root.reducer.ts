@@ -20,7 +20,7 @@ export class LIKE implements Action {
 
 export type POSTS_ACTIONS = UPDATE;
 
-function postsReducer(state: any = postsIntialState, action: POSTS_ACTIONS) {
+export function postsReducer(state: any = postsIntialState, action: POSTS_ACTIONS) {
   switch (action.type) {
     case PostsActions.FETCH.SUCCESS:
       return [ ... action.payload ];
@@ -43,7 +43,7 @@ function postsReducer(state: any = postsIntialState, action: POSTS_ACTIONS) {
  * UI Reducer
  */
 const uiIntialState = {
-  query: 'sunt aut'
+  query: ''
 };
 
 export class SEARCH implements Action {
@@ -54,7 +54,7 @@ export class SEARCH implements Action {
 
 export type UI_ACTIONS = SEARCH;
 
-function uiReducer(state: any = uiIntialState, action: UI_ACTIONS) {
+export function uiReducer(state: any = uiIntialState, action: UI_ACTIONS) {
   switch (action.type) {
     case UiActions.SEARCH:
       return { ...state, query: action.payload };

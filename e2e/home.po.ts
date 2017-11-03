@@ -1,8 +1,8 @@
 import { browser, by, element } from 'protractor';
 
-export class AppPage {
-  navigateTo() {
-    return browser.get('/');
+export class HomePage {
+  navigateToHome() {
+    return browser.get('/home');
   }
 
   getPosts() {
@@ -10,7 +10,7 @@ export class AppPage {
   }
 
   getQueryInput() {
-    return element(by.css('input[name=query]'));
+    return element(by.css('#qa-input-query'));
   }
 
   getSearchButton() {

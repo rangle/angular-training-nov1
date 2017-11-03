@@ -20,6 +20,14 @@ export class ClientService {
       })
   }
 
+  foo() {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve('FOO');
+      }, 1000);
+    });
+  }
+
   put() {}
   post() {}
   delete() {}
