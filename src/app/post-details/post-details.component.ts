@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
-import { PostsService } from '../posts/posts.service';
+import { Selectors } from '../ngrx/selectors';
 
 @Component({
   selector: 'app-post-details',
@@ -15,7 +15,7 @@ export class PostDetailsComponent implements OnInit, OnDestroy {
 
   constructor(
     private route: ActivatedRoute,
-    private postsService: PostsService,
+    private selectors: Selectors,
   ) { }
 
   ngOnInit() {
@@ -25,14 +25,7 @@ export class PostDetailsComponent implements OnInit, OnDestroy {
 
     this.subscription = Observable.combineLatest(
       id$,
-      this.postsService.posts$,
-    ).subscribe(([id, posts]) => {
-      this.post = posts.find(post => post.id === id);
-    });
-
-    this.subscription = Observable.combineLatest(
-      id$,
-      this.postsService.posts$,
+      this.selectors.posts$,
     ).subscribe(([id, posts]) => {
       this.post = posts.find(post => post.id === id);
     });

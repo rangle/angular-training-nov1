@@ -1,11 +1,11 @@
 <app-searchbar
   [query]="query"
-  (queryChange)="postsService.updateQuery($event)"
+  (queryChange)="uiActions.search($event)"
   >
 </app-searchbar>
 
 <app-post
-  *ngFor="let post of postsService.filteredPosts$ | async"
+  *ngFor="let post of selectors.filteredPosts$ | async"
   [title]="post.title"
   [body]="post.body"
   [author]="post.author"
@@ -19,7 +19,7 @@
   </p>
 
   <button class="bg-white ba b--green inline-flex items-center pa2 br2 sans-serif pointer f6 qa-like-btn"
-    (click)="postsService.updateLike(post.id)">
+    (click)="postsActions.like(post.id)">
 
     <app-like
       [likeCount]="post.likeCount">

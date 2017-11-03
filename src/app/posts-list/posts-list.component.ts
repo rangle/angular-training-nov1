@@ -1,5 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { PostsService } from '../posts/posts.service';
+import { Selectors } from '../ngrx/selectors';
+import { UiActions, PostsActions } from '../ngrx/actions';
 
 @Component({
   selector: 'app-posts-list',
@@ -13,15 +15,17 @@ export class PostsListComponent implements OnInit, OnDestroy {
 
   query: string = '';
   subscription: any;
-  constructor(private postsService: PostsService) {}
+  constructor(
+    private postsService: PostsService,
+    private selectors: Selectors,
+    private uiActions: UiActions,
+    private postsActions: PostsActions,
+  ) {}
 
   ngOnInit() {
-    this.subscription = this.postsService.posts$
-      .subscribe(() => {});
   }
 
   ngOnDestroy() {
-    this.subscription.unsubscribe();
     console.log('PostsListComponent destroyed');
   }
 
