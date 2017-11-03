@@ -13,6 +13,11 @@
   [likeCount]="post.likeCount"
 >
 
+  <p class="f5 f4-l" appText>
+    {{ post.body | excerpt:15:',' }}
+    <a [routerLink]="['/posts', post.id]" class="link dim blue mr3">read more</a>
+  </p>
+
   <button class="bg-white ba b--green inline-flex items-center pa2 br2 sans-serif pointer f6 qa-like-btn"
     (click)="postsService.updateLike(post.id)">
 

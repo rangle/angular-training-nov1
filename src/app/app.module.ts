@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { PostComponent } from './post/post.component';
@@ -16,6 +17,10 @@ import { ClientService } from './api/client.service';
 import { ScrollDirective } from './scroll.directive';
 import { PhoneNumberPipe } from './pipes/phone-number.pipe';
 import { HeadingComponent } from './heading/heading.component';
+import { routes } from './routes';
+import { PostDetailsComponent } from './post-details/post-details.component';
+
+export const routing = RouterModule.forRoot(routes);
 
 @NgModule({
   declarations: [
@@ -29,12 +34,14 @@ import { HeadingComponent } from './heading/heading.component';
     ExcerptPipe,
     ScrollDirective,
     PhoneNumberPipe,
-    HeadingComponent
+    HeadingComponent,
+    PostDetailsComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    routing,
   ],
   providers: [PostsService, ClientService],
   bootstrap: [AppComponent]

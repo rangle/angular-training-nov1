@@ -1,0 +1,23 @@
+<app-post
+  [title]="post?.title"
+  [body]="post?.body"
+  [author]="post?.author"
+  [date]="post?.date"
+  [likeCount]="post?.likeCount"
+>
+
+  <p class="f5 f4-l" appText>
+    {{ post?.body }}
+  </p>
+
+  <button class="bg-white ba b--green inline-flex items-center pa2 br2 sans-serif pointer f6 qa-like-btn"
+    (click)="postsService.updateLike(post.id)">
+
+    <app-like
+      [likeCount]="post?.likeCount">
+    </app-like>
+
+    {{ post?.likeCount }}
+  </button>
+
+</app-post>

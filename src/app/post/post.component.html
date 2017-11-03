@@ -5,9 +5,7 @@
       {{ title }}
     </h2>
 
-    <p class="f5 f4-l" appText>
-      {{ body | excerpt:15:',' }}
-    </p>
+    <ng-content select="[appText]"></ng-content>
   </div>
 
   <div class="flex">

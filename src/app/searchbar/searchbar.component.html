@@ -8,7 +8,7 @@
         type="text"
         name="query"
         [(ngModel)]="query"
-        (change)="updateQuery()">
+        (keyup)="updateQuery()">
 
       <input class="f5 button-reset pv3 tc bn bg-animate bg-dark-gray hover-bg-mid-gray white pointer w4 br2 br--right"
         type="submit"

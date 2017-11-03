@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Observable } from 'rxjs';
+import { PostsService } from './posts/posts.service';
 
 @Component({
   selector: 'app-root',
@@ -11,12 +12,12 @@ export class AppComponent implements OnInit, OnDestroy {
   timer: any;
   phoneNumber = '1234567890';
 
-  constructor() {
+  constructor(private postsService: PostsService) {
   }
 
   ngOnInit() {
     // this.timer = Observable.interval(500);
-
+    this.postsService.getPosts();
     console.log('Component initialized');
   }
 

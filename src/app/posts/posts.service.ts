@@ -12,7 +12,7 @@ export class PostsService {
 
   public state$ =
     this.stateSubject.publishReplay(1).refCount();
-  public posts$ = this.state$.pluck('posts');
+  public posts$: Observable<any[]> = this.state$.pluck('posts');
   public filteredPosts$ = this.state$
     .map(state =>  this.filterPosts(state.posts, state.query));
 

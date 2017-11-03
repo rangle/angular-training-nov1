@@ -11,12 +11,11 @@ import { PostsService } from '../posts/posts.service';
 })
 export class PostsListComponent implements OnInit, OnDestroy {
 
-  query: string = 'this is the search query';
+  query: string = '';
   subscription: any;
   constructor(private postsService: PostsService) {}
 
   ngOnInit() {
-    this.postsService.getPosts();
     this.subscription = this.postsService.posts$
       .subscribe(() => {});
   }
