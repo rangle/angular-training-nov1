@@ -1,0 +1,46 @@
+<div class="pa4 mw8 center">
+
+  <pre>Control value is: {{ stateCtrl.value | json }}</pre>
+
+  <mat-form-field class="w-100">
+    <input matInput #thingy="matInput" placeholder="State"
+      aria-label="State"
+      [matAutocomplete]="auto"
+      [formControl]="stateCtrl">
+
+    <mat-autocomplete
+      #auto="matAutocomplete">
+
+      <mat-option
+        *ngFor="let state of filteredStates | async"
+        [value]="state.name"
+        (onSelectionChange)="foo(state)">
+        <img style="vertical-align:middle;" aria-hidden src="{{state.flag}}" height="25" />
+        <span>{{ state.name }}</span> |
+        <small>Population: {{state.population}}</small>
+      </mat-option>
+
+    </mat-autocomplete>
+  </mat-form-field>
+
+
+  <pre>model value is: {{ selectedToppings | json }}</pre>
+  <button
+    class="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6"
+    (click)="selectSomeToppings()">
+    Select Some Toppings
+  </button>
+
+  <mat-form-field class="w-100">
+    <mat-select
+      placeholder="Toppings"
+      [ngModel]="selectedToppings"
+      [compareWith]="compareSelection"
+      multiple >
+      <mat-option *ngFor="let topping of toppingList" [value]="topping">
+        {{ topping.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+</div>

@@ -5,15 +5,13 @@ import { PostsActions } from './ngrx/actions';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit, OnDestroy {
-
   timer: any;
   phoneNumber = '1234567890';
 
-  constructor(private postsActions: PostsActions) {
-  }
+  constructor(private postsActions: PostsActions) {}
 
   ngOnInit() {
     // this.timer = Observable.interval(500);
@@ -28,5 +26,4 @@ export class AppComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     console.log('Component destroyed');
   }
-
 }

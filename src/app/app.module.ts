@@ -2,6 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatAutocompleteModule, MatInputModule, MatSelectModule } from '@angular/material';
+import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
@@ -26,6 +29,8 @@ import { rootReducer } from './ngrx/root.reducer';
 import { Selectors } from './ngrx/selectors';
 import { UiActions, PostsActions } from './ngrx/actions';
 import { Effects } from './ngrx/effects';
+import { UserActivity } from './user-activity.service';
+import { ExperimentsComponent } from './experiments/experiments.component';
 
 export const routing = RouterModule.forRoot(routes);
 
@@ -42,20 +47,24 @@ export const routing = RouterModule.forRoot(routes);
     ScrollDirective,
     PhoneNumberPipe,
     HeadingComponent,
-    PostDetailsComponent
+    PostDetailsComponent,
+    ExperimentsComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
+    BrowserAnimationsModule,
     routing,
     StoreModule.forRoot(rootReducer),
     StoreDevtoolsModule.instrument({
-      maxAge: 25 // Retains last 25 states
+      maxAge: 25, // Retains last 25 states
     }),
-    EffectsModule.forRoot([
-      Effects,
-    ]),
+    EffectsModule.forRoot([Effects]),
+    MatAutocompleteModule,
+    MatInputModule,
+    MatSelectModule,
   ],
   providers: [
     PostsService,
@@ -63,7 +72,8 @@ export const routing = RouterModule.forRoot(routes);
     Selectors,
     UiActions,
     PostsActions,
+    UserActivity,
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
