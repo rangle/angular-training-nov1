@@ -27,7 +27,7 @@
     "@ngrx/store": "^4.1.0",
     "@ngrx/store-devtools": "^4.0.0",
     "core-js": "^2.4.1",
-    "rxjs": "^5.4.2",
+    "rxjs": "^5.5.12",
     "tachyons": "^4.9.0",
     "zone.js": "^0.8.14"
   },
